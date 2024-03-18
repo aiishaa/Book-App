@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+    <a href="{% url 'add author' %}" class="btn btn-primary"> Add a new author </a>
+    <h1> All Authors </h1>
+
+    <table class="table ">
+        <tr> 
+            <th> ID </th>
+            <th> Name </th> 
+            <th> Birthdate </th> 
+            <th> photo </th>
+            <th> Show </th> 
+            <th> Edit </th> 
+            <th> Delete </th>
+        </tr>
+
+    {% for author in authors %}
+    <tr >
+        <td> {{ author.id }}</td>
+        <td> {{ author.name }}</td>
+        <td> {{ author.bdate }}</td>
+        {% if author.photo %}
+            <td><img src="{{ author.photo.url }}" alt="Author Photo" width="100" height="100"></td>
+        {% else %}
+            <td></td>
+        {% endif %}
+        <td> <a href="{{ author.show_author }}" class="btn btn-danger"> Show Author </a></td>
+        <td> <a href="{{ author.edit_author }}" class="btn btn-danger"> Edit Author </a></td>
+        <td> <a href="{{ author.delete_author }}" class="btn btn-danger"> Delete Author </a></td>
+
+
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

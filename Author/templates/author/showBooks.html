@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+<title>Books by {{ author.name }}</title>
+<style>
+    .btn{
+        margin: 45px 30px;
+    }
+</style>
+<body>
+    <h1>Books by {{ author.name }}</h1>
+    <ul>
+        {% for book in author_books %}
+            <li>Book: {{ forloop.counter }}</li>
+            <li>{{ book.name }}</li>
+            <li>{{ book.price }}</li>
+            {% if book.image_url %}
+                <li><img src= "{{ book.image_url }}"></li>
+            {% endif %}
+        {% empty %}
+            <li>No books found for this author</li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-danger" href="{{ author.show_author }}">Back to Author</a>
+{% endblock %}
