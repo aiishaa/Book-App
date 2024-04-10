@@ -5,9 +5,6 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields='__all__'
-    # name = forms.CharField(label='Name', max_length=100)
-    # bdate = forms.DateField(label='bdate')
-    # photo = forms.ImageField(label='Photo')
 
 
     def clean_author_name(self):

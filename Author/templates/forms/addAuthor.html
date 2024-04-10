@@ -1,11 +1,10 @@
 {% extends 'layouts/base.html'%}
-
 {% block 'content' %}
 
-<form method="post"  enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" class="btn btn-darker" value="Add Author">
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-danger" value="Add Author">
 </form>
 
 {% endblock %}

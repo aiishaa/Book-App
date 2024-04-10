@@ -22,8 +22,9 @@ from BookApp.views import home
 from django.urls import include
 
 urlpatterns = [
-    path('home/', home, name="home page"),
     path('admin/', admin.site.urls),
+    path('', home, name="home page"),
+    path('home/', home, name="home page"),
     path('book/', include('BookApp.urls')),
     path('author/', include('Author.urls')),
     path('users/', include('users.urls')),

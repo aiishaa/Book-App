@@ -1,24 +1,27 @@
-
 {% extends 'layouts/base.html' %}
-{% block 'content' %}
 {% load static %}
+{% block 'content' %}
 <style>
     .btn {
         background-color: rgb(205, 93, 112);
     }
 </style>
+
 <h1>ALL BOOKS</h1>
 <table class="table">
-    <tr><th>ID</th><th>Name</th><th>Price</th><th>Image</th><th>Show</th></tr>
+    <tr><th>ID</th><th>Name</th><th>Price</th><th>Image</th><th>Show</th><th>Delete</th><th>Update</th>
     {% for book in books %}
         <tr>
             <td>{{ book.id }}</td>
             <td>{{ book.name }}</td>
             <td>{{ book.price }}</td>
-            <td> <img src="{% static 'images/'|add:book.image %}"
-                width="100" height="100"></td>
-            <td><a class="btn" href="{% url 'Book info' book.id %}">Show</a></td>
+            <td> <img src="{{book.image_url}}" width="100" height="100"></td>
+            <td><a class="btn" href="{% url 'Book show' book.id %}">Show</a></td>
+            <td><a class="btn" href="{% url 'delete book' book.id %}"> Delete </a></td>
+            <td><a class="btn" href="{% url 'update book' book.id %}"> Update </a></td>
         </tr>
     {% endfor %}
 </table>
+
+<a href="{% url 'create book' %}" class="btn btn-primary"> Add a new book </a>
 {% endblock %}

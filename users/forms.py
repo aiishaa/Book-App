@@ -10,9 +10,13 @@ class UserModelForm(forms.ModelForm):
 
 
     def save(self, commit=True):
-        ## cleaned_data --> save in projects
-        ## project object
-        ## files __ insert insert model images
         self.instance.password= make_password(password=self.instance.password)
         super().save()
         return self.instance
+    
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=50)
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model = User
+        fields = ('username', 'password')

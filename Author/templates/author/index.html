@@ -1,7 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block 'content' %}
-    <a href="{% url 'add author' %}" class="btn btn-primary"> Add a new author </a>
     <h1> All Authors </h1>
 
     <table class="table ">
@@ -28,9 +27,8 @@
         <td> <a href="{{ author.show_author }}" class="btn btn-danger"> Show Author </a></td>
         <td> <a href="{{ author.edit_author }}" class="btn btn-danger"> Edit Author </a></td>
         <td> <a href="{{ author.delete_author }}" class="btn btn-danger"> Delete Author </a></td>
-
-
     </tr>
     {% endfor %}
     </table>
+    <a href="{% url 'add author' %}" class="btn btn-danger"> Add a new author </a>
 {% endblock %}

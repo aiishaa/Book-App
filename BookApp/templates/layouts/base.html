@@ -30,7 +30,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Book website</a>
+            <a class="navbar-brand" href="#">BookStore website</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'get books' %}">All books</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'get authors' %}">All authors</a>
+                    </li>
                 </ul>
                 {% if user.is_authenticated %}
                     <ul class="navbar-nav">
@@ -49,7 +52,7 @@
                             <span class="nav-link">{{ user.username }}</span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            <a class="nav-link" href="{% url 'logout view' %}">Logout</a>
                         </li>
                     </ul>
                 {% else %}
@@ -58,7 +61,7 @@
                             <a class="nav-link" href="{% url 'register' %}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link" href="{% url 'login view' %}">Login</a>
                         </li>
                     </ul>
                 {% endif %}

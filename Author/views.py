@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.urls import reverse
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from BookApp.models import Book
 from .models import Author
 from .forms import AuthorForm
 
@@ -47,7 +48,6 @@ def deleteAuthor(request, id):
         return redirect(url)
 
 def show_author_books(request, id):
-    from BookApp.models import Book
     author = get_object_or_404(Author, id=id)
     author_books = list(Book.objects.filter(author=author))
     return render(request, 'author/showBooks.html', context={"author": author, "author_books": author_books})

@@ -6,6 +6,9 @@
     .btn{
         margin: 45px 30px;
     }
+    img{
+        margin-bottom: 40px;
+    }
 </style>
 <body>
     <h1>Books by {{ author.name }}</h1>
@@ -15,7 +18,7 @@
             <li>{{ book.name }}</li>
             <li>{{ book.price }}</li>
             {% if book.image_url %}
-                <li><img src= "{{ book.image_url }}"></li>
+                <img src= "{{ book.image_url }}">
             {% endif %}
         {% empty %}
             <li>No books found for this author</li>
